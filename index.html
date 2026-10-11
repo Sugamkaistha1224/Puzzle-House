@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Jigsaw Puzzle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap">
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body data-tone="dark">
+  <svg class="sprite" aria-hidden="true">
+    <symbol id="i-books" viewBox="0 0 24 24"><path d="M5 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/><path d="M9 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/><path d="M5 8h4"/><path d="M9 16h4"/><path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041z"/><path d="M14 9l4 -1"/><path d="M16 16l3.923 -.98"/></symbol>
+    <symbol id="i-arrow-back-up" viewBox="0 0 24 24"><path d="M9 14l-4 -4l4 -4"/><path d="M5 10h11a4 4 0 1 1 0 8h-1"/></symbol>
+    <symbol id="i-arrow-forward-up" viewBox="0 0 24 24"><path d="M15 14l4 -4l-4 -4"/><path d="M19 10h-11a4 4 0 1 0 0 8h1"/></symbol>
+    <symbol id="i-zoom-scan" viewBox="0 0 24 24"><path d="M4 8v-2a2 2 0 0 1 2 -2h2"/><path d="M4 16v2a2 2 0 0 0 2 2h2"/><path d="M16 4h2a2 2 0 0 1 2 2v2"/><path d="M16 20h2a2 2 0 0 0 2 -2v-2"/><path d="M8 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M16 16l-2.5 -2.5"/></symbol>
+    <symbol id="i-rotate-clockwise" viewBox="0 0 24 24"><path d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"/></symbol>
+    <symbol id="i-wand" viewBox="0 0 24 24"><path d="M6 21l15 -15l-3 -3l-15 15l3 3"/><path d="M15 6l3 3"/><path d="M9 3a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"/><path d="M19 13a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></symbol>
+    <symbol id="i-rotate-rectangle" viewBox="0 0 24 24"><path d="M10.09 4.01l.496 -.495a2 2 0 0 1 2.828 0l7.071 7.07a2 2 0 0 1 0 2.83l-7.07 7.07a2 2 0 0 1 -2.83 0l-7.07 -7.07a2 2 0 0 1 0 -2.83l3.535 -3.535h-3.988"/><path d="M7.05 11.038v-3.988"/></symbol>
+    <symbol id="i-border-outer" viewBox="0 0 24 24"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M12 8l0 .01"/><path d="M8 12l0 .01"/><path d="M12 12l0 .01"/><path d="M16 12l0 .01"/><path d="M12 16l0 .01"/></symbol>
+    <symbol id="i-layout-grid" viewBox="0 0 24 24"><path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 17l0 .01"/><path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12l14 0"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5l0 14"/><path d="M5 12l14 0"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"/><path d="M13.5 6.5l4 4"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7l16 0"/><path d="M10 11l0 6"/><path d="M14 11l0 6"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/></symbol>
+    <symbol id="i-photo-up" viewBox="0 0 24 24"><path d="M15 8h.01"/><path d="M12.5 21h-6.5a3 3 0 0 1 -3 -3v-12a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v6.5"/><path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l3.5 3.5"/><path d="M14 14l1 -1c.679 -.653 1.473 -.829 2.214 -.526"/><path d="M19 22v-6"/><path d="M22 19l-3 -3l-3 3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5l10 -10"/></symbol>
+  </svg>
+
+  <main id="table" class="table" tabindex="0" aria-label="Puzzle table">
+    <canvas class="layer" aria-hidden="true"></canvas>
+    <canvas class="layer layer-float" aria-hidden="true"></canvas>
+  </main>
+
+  <div id="unpack" class="unpack" role="status" hidden>
+    <p class="unpack-label">Unpacking the box</p>
+    <p class="unpack-count"><span id="unpackCount">0</span> <small>pieces</small></p>
+    <div class="meter"><span id="unpackMeter"></span></div>
+  </div>
+
+  <section id="notice" class="notice" hidden aria-labelledby="noticeTitle">
+    <h2 id="noticeTitle" class="title"></h2>
+    <p id="noticeText"></p>
+    <div class="notice-actions">
+      <label id="noticeUpload" class="btn btn-primary" hidden>
+        Choose the photo again
+        <input id="noticeFile" class="sr-only" type="file" accept="image/*">
+      </label>
+      <button id="noticeRetry" class="btn btn-primary" type="button" hidden>Try again</button>
+      <button class="btn btn-quiet" type="button" data-act="shelf">Back to the shelf</button>
+    </div>
+  </section>
+
+  <header id="badgeWrap" class="badge-wrap">
+    <button id="badge" class="badge" type="button" aria-expanded="false" aria-controls="lid">
+      <img id="badgeArt" class="badge-art" alt="">
+      <span class="badge-text">
+        <span id="badgeName" class="badge-name"></span>
+        <span class="badge-meta"><span id="badgeJoined"></span><span id="badgeClock" class="clock">0:00</span></span>
+      </span>
+    </button>
+    <aside id="lid" class="lid" aria-label="Box lid">
+      <figure class="lid-art"><img id="lidArt" alt=""></figure>
+      <div class="lid-label">
+        <p class="lid-count"><span id="lidCount">0</span><small>pieces</small></p>
+        <div class="lid-title">
+          <p class="lid-brand">Jigsaw Puzzle</p>
+          <h2 id="lidName" class="title"></h2>
+        </div>
+        <p id="lidStamp" class="lid-stamp" hidden>Complete</p>
+      </div>
+      <div class="lid-back">
+        <p id="lidDesc" class="lid-desc"></p>
+        <dl class="lid-stats">
+          <div><dt>Joined</dt><dd id="lidJoined">0</dd></div>
+          <div><dt>Time at the table</dt><dd id="lidClock" class="clock">0:00</dd></div>
+        </dl>
+        <p id="lidCredit" class="lid-credit"></p>
+      </div>
+      <button class="icon-btn lid-close" type="button" data-act="lid" aria-label="Lay the lid down"><svg><use href="#i-x"/></svg></button>
+    </aside>
+  </header>
+
+  <nav id="corner" class="dock dock-corner" aria-label="Puzzle and settings">
+    <button class="tool" type="button" data-act="shelf" data-tip="Back to the shelf"><svg><use href="#i-books"/></svg><span class="tool-name">Shelf</span></button>
+    <button class="tool" type="button" data-act="settings" data-tip="Tabletop, sound and the clock"><svg><use href="#i-settings"/></svg><span class="tool-name">Settings</span></button>
+    <button class="tool" type="button" data-act="help" data-tip="How to play" data-keys="?"><svg><use href="#i-help"/></svg><span class="tool-name">Help</span></button>
+  </nav>
+
+  <div id="history" class="dock dock-history" role="group" aria-label="Undo and redo">
+    <button id="undoBtn" class="tool" type="button" data-act="undo" data-tip="Undo" data-keys="{mod} Z" disabled><svg><use href="#i-arrow-back-up"/></svg><span class="tool-name">Undo</span></button>
+    <button id="redoBtn" class="tool" type="button" data-act="redo" data-tip="Redo" data-keys="Shift {mod} Z" disabled><svg><use href="#i-arrow-forward-up"/></svg><span class="tool-name">Redo</span></button>
+  </div>
+
+  <div id="zoom" class="dock dock-zoom" role="group" aria-label="Zoom">
+    <button class="tool" type="button" data-act="zoomout" data-tip="Zoom out" data-keys="−"><svg><use href="#i-minus"/></svg></button>
+    <button id="zoomPct" class="tool tool-wide" type="button" data-act="zoom100" title="Back to 100%" aria-label="Zoom level. Press to go back to 100%">100%</button>
+    <button class="tool" type="button" data-act="zoomin" data-tip="Zoom in" data-keys="+"><svg><use href="#i-plus"/></svg></button>
+  </div>
+
+  <nav id="rail" class="dock dock-rail" aria-label="Table tools">
+    <button class="tool" type="button" data-act="fit" data-tip="Fit every piece on screen" data-keys="0"><svg><use href="#i-zoom-scan"/></svg><span class="tool-name">Fit</span></button>
+    <button class="tool" type="button" data-act="spin" data-tip="Spin the table a quarter turn" data-keys="Shift ]"><svg><use href="#i-rotate-clockwise"/></svg><span class="tool-name">Spin</span></button>
+    <span class="dock-rule" data-assists aria-hidden="true"></span>
+    <button class="tool" type="button" data-assists data-assist="flip" data-tip="Turn every piece face up"><svg><use href="#i-eye"/></svg><span class="tool-name">Face up</span></button>
+    <button class="tool" type="button" data-assists data-assist="straighten" data-tip="Square every piece to the screen"><svg><use href="#i-rotate-rectangle"/></svg><span class="tool-name">Square</span></button>
+    <button class="tool" type="button" data-assists data-assist="edges" data-tip="Gather the loose edge pieces"><svg><use href="#i-border-outer"/></svg><span class="tool-name">Edges</span></button>
+    <button class="tool" type="button" data-assists data-assist="spread" data-tip="Lay loose pieces out in rows"><svg><use href="#i-layout-grid"/></svg><span class="tool-name">Spread</span></button>
+  </nav>
+
+  <div id="held" class="held" role="status" hidden>
+    <span id="heldText"></span>
+    <button class="held-btn" type="button" data-act="putdown">Put down</button>
+  </div>
+
+  <aside id="coach" class="coach" hidden aria-labelledby="coachTitle">
+    <h2 id="coachTitle" class="label">Handling the pieces</h2>
+    <ul id="coachList"></ul>
+    <button class="btn btn-quiet" type="button" data-act="coached">Got it</button>
+  </aside>
+
+  <dialog id="shelf" class="shelf" aria-labelledby="shelfTitle">
+    <canvas id="shelfScene" class="shelf-scene" aria-hidden="true"></canvas>
+    <div class="shelf-inner">
+      <header class="shelf-head">
+        <div>
+          <p class="shelf-brand">Jigsaw Puzzle</p>
+          <h1 id="shelfTitle" class="display" tabindex="-1" autofocus>The shelf</h1>
+          <p id="shelfSummary" class="shelf-summary"></p>
+        </div>
+        <div class="shelf-actions">
+          <button class="btn btn-primary" type="button" data-act="new"><svg><use href="#i-plus"/></svg>New puzzle</button>
+          <button class="icon-btn" type="button" data-act="help" aria-label="How to play"><svg><use href="#i-help"/></svg></button>
+          <button id="shelfClose" class="icon-btn" type="button" data-act="close-shelf" aria-label="Back to the table"><svg><use href="#i-x"/></svg></button>
+        </div>
+      </header>
+      <section class="shelf-section" aria-labelledby="mineTitle">
+        <h2 id="mineTitle" class="label">Your boxes</h2>
+        <ol id="mine" class="stack"></ol>
+        <p id="mineEmpty" class="empty" hidden>Nothing on the shelf yet. Break the seal on a box below, or cut a puzzle from your own photo.</p>
+      </section>
+      <section class="shelf-section" aria-labelledby="sealedTitle">
+        <h2 id="sealedTitle" class="label">Sealed boxes <span>photographs from Unsplash</span></h2>
+        <ol id="sealed" class="stack"></ol>
+      </section>
+    </div>
+  </dialog>
+
+  <dialog id="create" class="sheet sheet-wide" aria-labelledby="createTitle">
+    <form id="createForm" novalidate>
+      <header class="sheet-head">
+        <h2 id="createTitle" class="title">Cut a new puzzle</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+      </header>
+      <div class="create-grid">
+        <div id="preview" class="preview" data-state="empty">
+          <canvas id="previewCanvas" width="720" height="480"></canvas>
+          <p id="previewNote" class="preview-note">Choose a photograph to see where the die will cut.</p>
+        </div>
+        <div class="create-fields">
+          <fieldset class="field">
+            <legend class="label">Picture</legend>
+            <div class="segmented">
+              <label><input type="radio" name="source" value="collection" checked><span>Collection</span></label>
+              <label><input type="radio" name="source" value="link"><span>Link</span></label>
+              <label><input type="radio" name="source" value="upload"><span>Upload</span></label>
+            </div>
+            <div class="source-panel" data-panel="collection">
+              <div id="picker" class="picker"></div>
+            </div>
+            <div class="source-panel" data-panel="link" hidden>
+              <label class="sr-only" for="linkInput">Image address</label>
+              <input id="linkInput" class="input" type="url" inputmode="url" placeholder="https://example.com/photo.jpg" autocomplete="off">
+            </div>
+            <div class="source-panel" data-panel="upload" hidden>
+              <label id="drop" class="drop" for="fileInput">
+                <svg><use href="#i-photo-up"/></svg>
+                <span>Choose a photo</span>
+                <small>or drop one here</small>
+              </label>
+              <input id="fileInput" class="sr-only" type="file" accept="image/*">
+            </div>
+            <p id="sourceError" class="field-error" role="alert"></p>
+          </fieldset>
+          <div class="field">
+            <label class="label" for="nameInput">Name</label>
+            <input id="nameInput" class="input" name="name" required maxlength="60" autocomplete="off">
+            <p id="nameError" class="field-error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label class="label" for="descInput">Description <span class="optional">optional</span></label>
+            <textarea id="descInput" class="input" name="desc" rows="2" maxlength="240"></textarea>
+          </div>
+          <fieldset class="field">
+            <legend class="label">Pieces</legend>
+            <div id="counts" class="counts"></div>
+            <p id="countNote" class="count-note"></p>
+            <p id="countKey" class="count-key" hidden><span class="mark" data-rate="lag"></span>may lag <span class="mark" data-rate="slow"></span>likely sluggish on this device</p>
+          </fieldset>
+        </div>
+      </div>
+      <footer class="sheet-foot">
+        <p class="foot-note">The count is cut into the board, so it can’t change later.</p>
+        <button id="cutBtn" class="btn btn-primary" type="submit">Cut 500 pieces</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog id="edit" class="sheet" aria-labelledby="editTitle">
+    <form id="editForm" novalidate>
+      <header class="sheet-head">
+        <h2 id="editTitle" class="title">Relabel the box</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+      </header>
+      <div class="field">
+        <label class="label" for="editName">Name</label>
+        <input id="editName" class="input" required maxlength="60" autocomplete="off">
+        <p id="editError" class="field-error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label class="label" for="editDesc">Description <span class="optional">optional</span></label>
+        <textarea id="editDesc" class="input" rows="2" maxlength="240"></textarea>
+      </div>
+      <footer class="sheet-foot">
+        <button class="btn btn-quiet" type="button" data-close>Cancel</button>
+        <button class="btn btn-primary" type="submit">Save label</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog id="confirm" class="sheet" aria-labelledby="confirmTitle">
+    <form method="dialog">
+      <h2 id="confirmTitle" class="title">Put this puzzle away for good?</h2>
+      <p id="confirmText"></p>
+      <footer class="sheet-foot">
+        <button class="btn btn-quiet" value="cancel">Keep it</button>
+        <button class="btn btn-primary" value="delete">Delete puzzle</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog id="pause" class="sheet" aria-labelledby="pauseTitle">
+    <form method="dialog">
+      <p class="label">The clock</p>
+      <h2 id="pauseTitle" class="title"></h2>
+      <p id="pauseText"></p>
+      <p class="pause-time clock" id="pauseClock">0:00</p>
+      <footer class="sheet-foot">
+        <button id="pauseAdd" class="btn btn-quiet" value="add"></button>
+        <button class="btn btn-primary" value="resume" autofocus>Resume</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog id="settings" class="sheet sheet-settings" aria-labelledby="settingsTitle">
+    <form method="dialog">
+      <header class="sheet-head">
+        <h2 id="settingsTitle" class="title">Table settings</h2>
+        <button class="icon-btn" value="close" aria-label="Close"><svg><use href="#i-x"/></svg></button>
+      </header>
+      <div class="settings-grid">
+      <div class="settings-col">
+      <fieldset class="field">
+        <legend class="label">Tabletop</legend>
+        <div id="tabletops" class="tops"></div>
+        <div class="top-foot">
+          <p id="tabletopNote" class="top-note"></p>
+          <button id="tabletopDefault" class="btn btn-quiet btn-small" type="button" hidden>Use it for every puzzle</button>
+        </div>
+      </fieldset>
+      <fieldset id="setView" class="field field-view">
+        <legend class="label">View</legend>
+        <div class="segmented segmented-two">
+          <label><input type="radio" name="view" value="3d"><span>3D</span></label>
+          <label><input type="radio" name="view" value="flat"><span>HD-2D</span></label>
+        </div>
+        <small>3D looks across the table from your seat. HD-2D looks straight down. Pieces, light and shadow are the same in both.</small>
+      </fieldset>
+      </div>
+      <div class="settings-col">
+      <fieldset class="field field-checks">
+        <legend class="label">Turning pieces</legend>
+        <label class="check"><input id="setTurnEdge" type="checkbox"><span><strong>Drag a piece by its edge</strong><small>Grab near the rim to turn it. Grab the middle to carry it.</small></span></label>
+        <label class="check"><input id="setTurnScroll" type="checkbox"><span><strong>Scroll while holding a piece</strong><small>The wheel or trackpad turns whatever is in your hand.</small></span></label>
+      </fieldset>
+      <label class="switch">
+        <span><strong>Zooming</strong><small>Scroll, pinch or use the zoom buttons to move closer. With this off, scrolling moves the table instead.</small></span>
+        <input id="setZoom" type="checkbox">
+      </label>
+      <label class="switch">
+        <span><strong>Assists</strong><small>Tools a real table doesn’t have: turn everything face up, square up angles, gather edges, spread the pile.</small></span>
+        <input id="setAssists" type="checkbox">
+      </label>
+      <label class="switch">
+        <span><strong>Sound</strong><small>A soft knock when pieces lock together.</small></span>
+        <input id="setSound" type="checkbox">
+      </label>
+      <div class="field range-field">
+        <label class="label" for="setIdle">Pause the clock after</label>
+        <div class="range-row">
+          <input id="setIdle" type="range" min="1" max="10" step="1">
+          <output id="setIdleOut" for="setIdle">3 min</output>
+        </div>
+        <small>Minutes without a move before the clock stops.</small>
+      </div>
+      </div>
+      </div>
+      <footer class="sheet-foot">
+        <button class="btn btn-quiet" type="button" data-act="help"><svg><use href="#i-help"/></svg>How to play</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog id="help" class="sheet sheet-wide" aria-labelledby="helpTitle">
+    <header class="sheet-head">
+      <h2 id="helpTitle" class="title">How to play</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    </header>
+    <p class="guide-lede">Work it the way you would on a real table. Sort, flip and turn the pieces, build sections anywhere, and join them when they meet.</p>
+    <div id="helpBody"></div>
+  </dialog>
+
+  <p id="toast" class="toast" role="status" aria-live="polite"></p>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
