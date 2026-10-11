@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "three": "0.186.1",
+    "cannon-es": "0.20.0"
+  }
+}
